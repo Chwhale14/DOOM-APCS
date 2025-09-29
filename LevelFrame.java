@@ -77,7 +77,7 @@ public class LevelFrame extends JPanel implements KeyListener {
 				double rayAngle = -gamePlayer.getAngle() + i;
 				int centerX = gamePlayer.getX() + gamePlayer.getXSize() / 2;
 				int centerY = gamePlayer.getY() + gamePlayer.getYSize() / 2;
-				double distance = c.castRay(centerX, centerY, rayAngle);
+				double distance = c.castRay(centerX, centerY, rayAngle, gamePlayer.getAngle());
 				c.renderWallSlice(g, (int)((i + c.getFOV()) * (10 / 3)), distance);
 				g2d.setColor(Color.LIGHT_GRAY);
 				g2d.fillRect(0, 525, width, 75);
@@ -150,5 +150,6 @@ public class LevelFrame extends JPanel implements KeyListener {
 	public void keyTyped(KeyEvent e) {
 
 	}
+
 
 }
