@@ -19,7 +19,7 @@ public class Camera {
 		frame = lf;
 	}
 
-	public double castRay(double startX, double startY, double angle) {
+	public double castRay(double startX, double startY, double angle, double playerAngle) {
 		double rayX = startX;
 		double rayY = startY;
 		double stepSize = 0.05;
@@ -29,7 +29,7 @@ public class Camera {
 			rayY += Math.sin(Math.toRadians(angle)) * stepSize;
 			distance += stepSize;
 		}
-		return distance;
+		return distance * Math.cos(Math.toRadians(angle + playerAngle));
 	}
 	public void renderWallSlice(Graphics g, int x, double distance) {
 		int screenHeight = 600;
@@ -73,4 +73,5 @@ public class Camera {
 	public int getFOV() {
 		return FOV;
 	}
+
 }
